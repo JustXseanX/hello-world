@@ -1,21 +1,47 @@
-/*æ»¡è¶³ä¸‹åˆ—æ¡ä»¶çš„è‡ªç„¶æ•°ç§°ä¸ºè¶…çº§ç´ æ•°:è¯¥æ•°æœ¬èº«,æ‰€æœ‰æ•°å­—ä¹‹å’Œ,æ‰€æœ‰æ•°å­—ä¹‹ç§¯ä»¥åŠæ‰€æœ‰æ•°å­—çš„å¹³æ–¹å’Œéƒ½æ˜¯ç´ æ•°.ä¾‹å¦‚113å°±æ˜¯ä¸€ä¸ªè¶…çº§ç´ æ•°.æ±‚[100,9999]ä¹‹å†…:(1)è¶…çº§ç´ æ•°çš„ä¸ªæ•°.(2)æ‰€æœ‰è¶…çº§ç´ æ•°ä¹‹å’Œ.(3)æœ€å¤§çš„è¶…çº§ç´ æ•°.*/
+/*Âú×ãÏÂÁĞÌõ¼şµÄ×ÔÈ»Êı³ÆÎª³¬¼¶ËØÊı:¸ÃÊı±¾Éí,ËùÓĞÊı×ÖÖ®ºÍ,ËùÓĞÊı×ÖÖ®»ıÒÔ¼°ËùÓĞÊı×ÖµÄÆ½·½ºÍ¶¼ÊÇËØÊı.ÀıÈç113¾ÍÊÇÒ»¸ö³¬¼¶ËØÊı.Çó[100,9999]Ö®ÄÚ:(1)³¬¼¶ËØÊıµÄ¸öÊı.(2)ËùÓĞ³¬¼¶ËØÊıÖ®ºÍ.(3)×î´óµÄ³¬¼¶ËØÊı.*/
+#include<stdio.h>
+
 int sum_bit(int num) {
-  return 0;
+	int sum = 0;
+	while(1){
+		sum += num % 10;
+		num = num / 10;
+		if (num == 0) break;
+	}
+	return sum;
 }
 
 int multi_bit(int num) {
-  return 0;
+	int multi = 1;
+	while(1){
+		multi *= num % 10;
+		num = num / 10;
+		if (num == 0) break;
+	}
+	return multi;
 }
 
 int square_sum_bit(int num) {
-  return 0;
+	int sqsum = 0;
+	while(1){
+		sqsum += pow(num % 10, 2);
+		num = num / 10;
+		if (num == 0) break;
+	}
+	return sqsum;
 }
 
-bool isprime(int num) {
-  return false;
+int isprime(int num) {
+	for(int i = 2; i <= sqrt(num); i++){
+		if (num % i == 0) return 0;
+	}
+	return 1;
 }
 
 int main() {
-  if(isprime(113)&&isprime(sum_bit(113))&&isprime(multi_bit(113))&&isprime(square_sum_bit(113)))
+	if(isprime(113) && isprime(sum_bit(113)) && isprime(multi_bit(113)) && isprime(square_sum_bit(113)))
+		printf("%d is superprime", 113);
+	else
+		printf("%d is not superprime", 113);
     //to do sth
 }
